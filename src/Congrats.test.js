@@ -7,6 +7,7 @@ import Congrats from './Congrats';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
+const defaultProps = { success: false };
 /**
  * Factory function to create a ShallowWrapper for the Congrats component.
  * @function setup
@@ -14,7 +15,8 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  * @returns {ShallowWrapper}
  */
 const setup = (props={}) => {
-  return shallow(<Congrats {...props} />)
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<Congrats {...setupProps} />)
 };
 
 test('renders without error', () => {
